@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(CharacterController))]
 public class Character : MonoBehaviour, ICoroutineRunner, ILevelable, IDamagable, IKnockbackable
@@ -28,7 +29,8 @@ public class Character : MonoBehaviour, ICoroutineRunner, ILevelable, IDamagable
     public event Action Damaged;
     public event Action Died;
 
-    public void Init(CharacterConfig config, CharacterStats stats)
+    [Inject]
+    public void Construct(CharacterConfig config, CharacterStats stats)
     {
         _controller = GetComponent<CharacterController>();
 

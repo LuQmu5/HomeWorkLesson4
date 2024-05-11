@@ -11,7 +11,7 @@ public class GameOverPanel : MonoBehaviour
 
     public event Action ExitButtonClicked;
     public event Action RestartButtonClicked;
-
+    
     private void OnEnable()
     {
         _restartButton.onClick.AddListener(OnRestartButtonClicked);

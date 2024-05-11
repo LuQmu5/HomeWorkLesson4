@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class CharacterStatsDisplay : MonoBehaviour
 {
@@ -11,7 +9,8 @@ public class CharacterStatsDisplay : MonoBehaviour
 
     private CharacterStats _characterStats;
 
-    public void Init(CharacterStats characterStats)
+    [Inject]
+    public void Construct(CharacterStats characterStats)
     {
         _characterStats = characterStats;
 

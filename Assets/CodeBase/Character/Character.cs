@@ -39,6 +39,8 @@ public class Character : MonoBehaviour, ICoroutineRunner, ILevelable, IDamagable
 
         _input = new PlayerInput();
         _stateMachine = new CharacterStateMachine(this);
+
+        Debug.Log(stats.CurrentHealth);
     }
 
     private void Update()

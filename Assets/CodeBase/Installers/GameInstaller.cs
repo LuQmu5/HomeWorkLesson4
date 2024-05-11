@@ -19,7 +19,10 @@ public class GameInstaller : MonoInstaller
         Character character = Container.InstantiatePrefabForComponent<Character>(_characterPrefab, _characterSpawnPoint.position, Quaternion.identity, null);
         Container.BindInstance(character).AsSingle();
 
-        Container.BindInstance(new GameManagement( , character, _refreshableObjects)).AsSingle();
-        Container.BindInstance(new GameManagementMediator(_gameOverPanel, character, )).AsSingle();
+        Container.Bind<RefreshableObject[]>().FromInstance(_refreshableObjects).AsSingle();
+        Container.Bind<GameOverPanel>().FromInstance(_gameOverPanel).AsSingle();
+
+        Container.Bind<GameManagementMediator>().AsSingle().NonLazy();
+        Container.Bind<GameManagement>().AsSingle();
     }
 }

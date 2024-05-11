@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManagement
 {
     private readonly CharacterStats _characterStats;
     private readonly Character _character;
-    private readonly IReadOnlyCollection<RefreshableObject> _refreshableObjects;
+    private readonly RefreshableObject[] _refreshableObjects;
     private readonly Vector3 _characterStartPosition;
 
-    public GameManagement(CharacterStats characterStats, Character character, IReadOnlyCollection<RefreshableObject> refreshableObjects)
+    public GameManagement(CharacterStats characterStats, Character character, RefreshableObject[] refreshableObjects)
     {
         _characterStats = characterStats;
         _character = character;
@@ -20,8 +18,6 @@ public class GameManagement
 
     public void EndGame()
     {
-        Debug.Log("GG");
-
         _character.Controller.enabled = false;
         _character.Input.Disable();
         _character.View.Hide();

@@ -1,16 +1,17 @@
 ﻿using System;
+using UnityEngine;
 
 public class GameManagementMediator : IDisposable
 {
+    private GameManagement _gameManagement;
     private GameOverPanel _gameOverPanel;
     private Character _character;
-    private GameManagement _gameManagement;
 
     public GameManagementMediator(GameOverPanel gameOverPanel, Character character, GameManagement gameManagement)
     {
+        _gameManagement = gameManagement;
         _gameOverPanel = gameOverPanel;
         _character = character;
-        _gameManagement = gameManagement;
 
         _gameOverPanel.RestartButtonClicked += OnRestartButtonClicked;
         _gameOverPanel.ExitButtonClicked += OnExitButtonClicked;

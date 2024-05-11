@@ -20,7 +20,6 @@ public abstract class MovementState : BaseState
     {
         base.Enter();
 
-        Debug.Log(GetType());
         AddInputActionsCallbacks();
     }
 

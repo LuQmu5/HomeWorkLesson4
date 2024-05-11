@@ -8,6 +8,8 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private Character _characterPrefab;
     [SerializeField] private Transform _characterSpawnPoint;
     [SerializeField] private CharacterConfig _config;
+    [SerializeField] private GameOverPanel _gameOverPanel;
+    [SerializeField] private RefreshableObject[] _refreshableObjects;
 
     public override void InstallBindings()
     {
@@ -17,9 +19,7 @@ public class GameInstaller : MonoInstaller
         Character character = Container.InstantiatePrefabForComponent<Character>(_characterPrefab, _characterSpawnPoint.position, Quaternion.identity, null);
         Container.BindInstance(character).AsSingle();
 
-        /*
-        Container.Bind<GameManagement>().AsSingle();
-        Container.Bind<GameManagementMediator>().AsSingle();
-        */
+        Container.BindInstance(new GameManagement( , character, _refreshableObjects)).AsSingle();
+        Container.BindInstance(new GameManagementMediator(_gameOverPanel, character, )).AsSingle();
     }
 }

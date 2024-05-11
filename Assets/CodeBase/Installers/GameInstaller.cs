@@ -12,9 +12,10 @@ public class GameInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<CharacterConfig>().FromInstance(_config).AsSingle();
-        Container.BindInstance(new CharacterStats(_config.StartLevel, _config.StartMaxHealth));
+        Container.BindInstance(new CharacterStats(_config.StartLevel, _config.StartMaxHealth)).AsSingle();
+
         Character character = Container.InstantiatePrefabForComponent<Character>(_characterPrefab, _characterSpawnPoint.position, Quaternion.identity, null);
-        Container.BindInstance(character);
+        Container.BindInstance(character).AsSingle();
 
         /*
         Container.Bind<GameManagement>().AsSingle();

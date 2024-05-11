@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603dfa0fb1a3be9418c0970b8264be98, type: 3}
+  m_Name: SpawnerConfig
+  m_EditorClassIdentifier: 
+  TimeBetweenSpawn: 2
+  EnemySpawnPoints:
+  - {x: 0.55, y: 0, z: 6.27}
+  - {x: -7.48, y: 0, z: 3.94}
+  - {x: -9.59, y: 0, z: -4}
+  - {x: -1.05, y: 0, z: -8.37}
+  - {x: 6.25, y: 0, z: -8.35}
+  - {x: 7.24, y: 0, z: -0.44}
+  - {x: 5.77, y: 0, z: 3.95}
